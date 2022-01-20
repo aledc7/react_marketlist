@@ -1,15 +1,15 @@
-import logo from './logo.svg';
+import logo from '../images/logo.svg';
 import React from 'react';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
-import './App.css';
+import '../css/App.css';
 
 // Creo un array para usar como prueba
 const todos = [
-  {id:1, text: 'Seguir Aprendiendo React', completed:false, priority:'alta'},
+  {id:1, text: 'Seguir Aprendiendo React', completed:true, priority:'alta'},
   {id:2,text: 'Aprender JSX', completed:false, priority:'media'},
   {id:3,text: 'Aprender MongoDB', completed:false, priority:'baja'},
 ]
@@ -18,12 +18,7 @@ function App() {
   return (
     <>
 
-      Este es un elemento
       <img src={logo} className="App-logo" alt="logo" />
-
-
-      <h1>Este es otro elemento</h1>
-
 
       <TodoCounter/>
       
@@ -31,9 +26,17 @@ function App() {
       <CreateTodoButton/>
       
       <TodoList>
-        esto equivale a un foreach, necesita obligatoriamente un índice unico.
+
+        {/* esto equivale a un foreach, necesita obligatoriamente un índice unico. */}
+
         {todos.map(todo => (
-          <TodoItem key={todo.id} id={todo.id} text={todo.text} priority={todo.priority}  />
+          <TodoItem 
+            key={todo.id} 
+            id={todo.id} 
+            text={todo.text} 
+            priority={todo.priority}
+            completed={todo.completed}
+          />
         ))}  
       </TodoList>
       
