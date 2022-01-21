@@ -35,6 +35,7 @@
 .Icon-check {
     position: absolute;
     left: 12px;
+    font-size: 34px;
 }
 
 .Icon-check--active {
@@ -45,6 +46,7 @@
     position: absolute;
     top: -24px;
     right: 0;
+    font-size:35px;
 }
 
 .Icon-delete:hover {
