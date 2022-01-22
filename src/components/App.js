@@ -9,15 +9,26 @@ import '../css/App.css';
 
 
 // Creo un array para usar como prueba, por ahora no consulto a nunguna base de datos
-const todos = [
+const defaultTodos = [
   {id:1, text: 'Seguir Aprendiendo React', completed:true, priority:'alta'},
-  {id:2,text: 'Aprender JSX', completed:false, priority:'media'},
-  {id:3,text: 'Aprender MongoDB', completed:false, priority:'baja'},
+  {id:2,text: 'Aprender JSX', completed:true, priority:'media'},
+  {id:3,text: 'Aprender MongoDB', completed:true, priority:'baja'},
 ]
 
 
 // Este es el componente PADRE que contendrá a todos los demas
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState('');
+  const completedTodos = todos.filter(todo => todo.completed == true).length;
+  const totalTodos = todos.length;
+
+
+  // filtro los todos segun lo que vaya escribiendo el usuario
+  const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
+
+
+
   return (
     <>
 
@@ -27,16 +38,25 @@ function App() {
   
       <p className='icon-html'>&#128203; App de Tareas &#9997; </p>
       
-      <TodoCounter/>
+      <TodoCounter
+        total = {totalTodos}
+        completed = {completedTodos}
+      />
       
-      <TodoSearch/>
+      <TodoSearch
+        searchValue = {searchValue}
+        setSearchValue = {setSearchValue}
+      />
+
+
+
       <CreateTodoButton/>
       
       <TodoList>
 
         {/* esto equivale a un foreach, necesita obligatoriamente un índice unico que se debe llamar `key`. */}
 
-        {todos.map(todo => (
+        {todosFiltered.map(todo => (
           <TodoItem 
             key={todo.id} 
             id={todo.id} 
