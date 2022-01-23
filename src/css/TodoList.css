@@ -3,3 +3,28 @@ ul {
     padding: 0 0 56px 0;
     list-style: none;
 }
+
+
+.lista {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+} 
+
+.centradodc{
+    /* Centrado Horizontal */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+
+    /* Centrado Vertical */
+    /* margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
+}

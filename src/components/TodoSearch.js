@@ -1,5 +1,6 @@
 import React from "react";
 import '../css/TodoSearch.css'
+import '../css/TodoList.css'
 
 function TodoSearch({searchValue, setSearchValue}){
 
@@ -8,18 +9,18 @@ function TodoSearch({searchValue, setSearchValue}){
         setSearchValue(event.target.value)
     };
 
+    
+
     return (
-        <>
-            <p className="Icon-search">&#128270;</p>
-
-            <input 
-                className="TodoSearch" 
-                placeholder='Buscar Tarea' 
-                onChange={onSearchValueChange}
-                value={searchValue}
-            />
-
-            <h1>{searchValue}</h1>
+        < >
+            <div className="centradodc">
+                <input 
+                    className="TodoSearch" 
+                    placeholder='Buscar... 👀 &#128270;' 
+                    onChange={onSearchValueChange}
+                    value={searchValue}
+                />
+            </div>
         </>
     );
 }
