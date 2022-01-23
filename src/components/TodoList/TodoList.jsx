@@ -1,6 +1,7 @@
 import React from "react";
-import '../css/TodoList.css';
-import { CreateTodoButton } from './CreateTodoButton';
+import './TodoList.css';
+import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
+
 
 
 function TodoList(props){

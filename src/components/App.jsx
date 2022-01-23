@@ -1,11 +1,11 @@
 import logo from '../images/logo.svg';
 import React from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodoItem';
+import { TodoCounter } from './TodoCounter/TodoCounter.jsx';
+import { TodoSearch } from './TodoSearch/TodoSearch.jsx';
+import { TodoList } from './TodoList/TodoList.jsx';
+import { TodoItem } from './TodoItem/TodoItem.jsx';
 // import { CreateTodoButton } from './CreateTodoButton';
-import '../css/App.css';
+import './App.css';
 
 
 // Creo un array para usar como prueba, por ahora no consulto a nunguna base de datos
