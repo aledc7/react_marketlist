@@ -23,30 +23,46 @@ import './App.css';
 // ]
 
 
-// Este es el componente PADRE que contendrá a todos los demas
+
+
+// creo un Custom HOOK Personalizado, que guarda en el local storage.   
+// Esta funcion se puede re utilizar a gusto.   
+function useLocalStorage(itemName, initalValue){
+
+  // traemos desde local storage lo que recibamos como parametro en esta funcion
+  const localStorageItem = localStorage.getItem(itemName);
+
+  let parseItem;
+
+  if (!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initalValue));
+    parseItem = [];
+  } else{
+    parseItem = JSON.parse(localStorageItem);
+  }
+
+
+  const [item, setItem] = React.useState(parseItem);
+
+
+  const saveItem = (newItem) =>{
+    const stringifiedItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName,stringifiedItem );
+    setItem(newItem);
+  }
+
+  return [
+    item, saveItem
+  ];
+
+
+  
+}
+
+
 function App() {
 
-
-  // Capturo el local Storage
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-
-  // creo una variable en donde voy a guardar los datos del local storage
-  let parseTodos;
-
-  // si el local storage no existe, creo  el local storage TODOS_V1 con un array vacío.
-  if (!localStorageTodos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    // dejo la variable vac´â
-    parseTodos = [];
-  } else{
-    // lleno la variable con los datos que recuperé del local storage
-    parseTodos = JSON.parse(localStorageTodos);
-  }
-  
-
-  // le paso al estado de tareas la info que encontré en el local storage
-  const [todos, setTodos] = React.useState(parseTodos);
-
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1',[]);
   
   // creo un estado que se usará para las busquedas del usuario.
   const [searchValue, setSearchValue] = React.useState('');
@@ -54,23 +70,8 @@ function App() {
   // cuento el total de tareas.
   const totalTodos = todos.length;
 
-
-  // funcion para guardar en Local Storage
-  const saveTodos = (newTodos) =>{
-    // paso a texto el array de tareas para poder mandarselo al local storage
-    const stringifiedTodos = JSON.stringify(newTodos);
-    
-    // guardo en el local storage, bajo la KEY TODOS_V1 el nuevo array de tareas
-    localStorage.setItem('TODOS_V1',stringifiedTodos );
-
-    // ademas de guardar en localstorage, actualizo las tareas para la aplicacion
-    setTodos(newTodos);
-  }
-
   // cuento las tareas completadas.
   const completedTodos = todos.filter(todo => todo.completed ).length;
-
-
 
   // filtro las tareas segun lo que vaya escribiendo el usuario.
   const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
