@@ -9,21 +9,52 @@ import './App.css';
 
 
 // Creo un array para usar como prueba, por ahora no consulto a nunguna base de datos
-const defaultTodos = [
-  {id:1, text: 'Seguir Aprendiendo React', completed:true, priority:'alta'},
-  {id:2,text: 'Aprender JSX', completed:false, priority:'media'},
-  {id:3,text: 'Aprender MongoDB', completed:true, priority:'baja'},
-]
+// const defaultTodos = [
+//   {id:1, text: 'Seguir Aprendiendo React', completed:true, priority:'alta'},
+//   {id:2,text: 'Aprender JSX', completed:false, priority:'media'},
+//   {id:3,text: 'Sacar a Shiba', completed:true, priority:'baja'},
+//   {id:4,text: 'Comprar Crypto', completed:true, priority:'baja'},
+//   {id:5,text: 'Practicar Ingles', completed:true, priority:'baja'},
+//   {id:6,text: 'Entrenar', completed:true, priority:'baja'},
+//   {id:7,text: 'Ir al Rio', completed:true, priority:'baja'},
+//   {id:8,text: 'Armar la tabla de paddle', completed:true, priority:'baja'},
+//   {id:9,text: 'Descansar', completed:true, priority:'baja'},
+//   {id:10,text: 'Meditar', completed:true, priority:'baja'},
+// ]
 
 
 // Este es el componente PADRE que contendrá a todos los demas
 function App() {
 
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parseTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parseTodos = [];
+  } else{
+    parseTodos = JSON.parse(localStorageTodos);
+  }
+  
+
   // creo los estados.
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const [todos, setTodos] = React.useState(parseTodos);
   const [searchValue, setSearchValue] = React.useState('');
   // cuento el total de tareas.
   const totalTodos = todos.length;
+
+
+  // funcion para guardar en Local Storage
+  const saveTodos = (newTodos) =>{
+    // paso a texto el array de tareas para poder mandarselo al local storage
+    const stringifiedTodos = JSON.stringify(newTodos);
+    
+    // guardo en el local storage, bajo la KEY TODOS_V1 el nuevo array de tareas
+    localStorage.setItem('TODOS_V1',stringifiedTodos );
+
+    // ademas de guardar en localstorage, actualizo las tareas para la aplicacion
+    setTodos(newTodos);
+  }
 
   // cuento las tareas completadas.
   const completedTodos = todos.filter(todo => todo.completed ).length;
@@ -50,7 +81,7 @@ function App() {
     // entonces a esta funcion le paso el nuevo array modificado, 
     // para que re renderize, las todos, y en cualquier otro elemento que esté usando este estado también lo renderizará.
     //
-    setTodos(newTodos);
+    saveTodos(newTodos);
 
   }
 
@@ -65,7 +96,7 @@ function App() {
     newTodos.splice(todoIndex,1);
 
     // finalmente seteo el nuevo array de todos.
-    setTodos(newTodos);
+    saveTodos(newTodos);
   }
 
 
@@ -75,7 +106,7 @@ function App() {
     // filtro dejando las tareas que el id sea distinto del que se le hizo click.
     // es otra forma de borrar
     const newTodos = todos.filter(todo=>todo.id !== id)
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
 
