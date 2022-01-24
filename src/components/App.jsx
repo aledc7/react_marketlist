@@ -6,6 +6,7 @@ import { TodoList } from './TodoList/TodoList.jsx';
 import { TodoItem } from './TodoItem/TodoItem.jsx';
 // import { CreateTodoButton } from './CreateTodoButton';
 import './App.css';
+import { useLocalStorage } from '../customHooks/useLocalStorage.jsx'
 
 
 // Creo un array para usar como prueba, por ahora no consulto a nunguna base de datos
@@ -25,39 +26,39 @@ import './App.css';
 
 
 
-// creo un Custom HOOK Personalizado, que guarda en el local storage.   
-// Esta funcion se puede re utilizar a gusto.   
-function useLocalStorage(itemName, initalValue){
+// // creo un Custom HOOK Personalizado, que guarda en el local storage.   
+// // Esta funcion se puede re utilizar a gusto.   
+// function useLocalStorage(itemName, initalValue){
 
-  // traemos desde local storage lo que recibamos como parametro en esta funcion
-  const localStorageItem = localStorage.getItem(itemName);
+//   // traemos desde local storage lo que recibamos como parametro en esta funcion
+//   const localStorageItem = localStorage.getItem(itemName);
 
-  let parseItem;
+//   let parseItem;
 
-  if (!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initalValue));
-    parseItem = [];
-  } else{
-    parseItem = JSON.parse(localStorageItem);
-  }
-
-
-  const [item, setItem] = React.useState(parseItem);
+//   if (!localStorageItem) {
+//     localStorage.setItem(itemName, JSON.stringify(initalValue));
+//     parseItem = [];
+//   } else{
+//     parseItem = JSON.parse(localStorageItem);
+//   }
 
 
-  const saveItem = (newItem) =>{
-    const stringifiedItem = JSON.stringify(newItem);
-    localStorage.setItem(itemName,stringifiedItem );
-    setItem(newItem);
-  }
+//   const [item, setItem] = React.useState(parseItem);
 
-  return [
-    item, saveItem
-  ];
+
+//   const saveItem = (newItem) =>{
+//     const stringifiedItem = JSON.stringify(newItem);
+//     localStorage.setItem(itemName,stringifiedItem );
+//     setItem(newItem);
+//   }
+
+//   return [
+//     item, saveItem
+//   ];
 
 
   
-}
+// }
 
 
 function App() {
