@@ -26,20 +26,31 @@ import './App.css';
 // Este es el componente PADRE que contendrá a todos los demas
 function App() {
 
+
+  // Capturo el local Storage
   const localStorageTodos = localStorage.getItem('TODOS_V1');
+
+  // creo una variable en donde voy a guardar los datos del local storage
   let parseTodos;
 
+  // si el local storage no existe, creo  el local storage TODOS_V1 con un array vacío.
   if (!localStorageTodos) {
     localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    // dejo la variable vac´â
     parseTodos = [];
   } else{
+    // lleno la variable con los datos que recuperé del local storage
     parseTodos = JSON.parse(localStorageTodos);
   }
   
 
-  // creo los estados.
+  // le paso al estado de tareas la info que encontré en el local storage
   const [todos, setTodos] = React.useState(parseTodos);
+
+  
+  // creo un estado que se usará para las busquedas del usuario.
   const [searchValue, setSearchValue] = React.useState('');
+  
   // cuento el total de tareas.
   const totalTodos = todos.length;
 
