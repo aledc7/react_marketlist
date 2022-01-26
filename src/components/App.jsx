@@ -66,8 +66,9 @@ function App() {
       >
 
       {dataStatus.error && <p>hubo un error.</p>}
-      {dataStatus.loading && <p>cargando...</p>}
+      {(dataStatus.loading && !dataStatus.error) && <p>cargando...</p>}
       {(!dataStatus.loading) && <p>crear tarea...</p>}
+      
 
         {todosFiltered.map(todo => (
           <TodoItem 
