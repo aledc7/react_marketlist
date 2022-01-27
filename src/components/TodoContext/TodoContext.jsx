@@ -22,13 +22,14 @@ function TodoProvider(props) {
         saveTodos(newTodos);
     }
 
-    function deleteTodov2(id) {
+    function deleteTodo(id) {
         const newTodos = todos.filter(todo => todo.id !== id)
         saveTodos(newTodos)
     }
 
 
     return (
+        // Aca va hacia el componente principal
         <TodoContext.Provider
             value={{
                 dataStatus,
@@ -37,9 +38,8 @@ function TodoProvider(props) {
                 searchValue,
                 setSearchValue,
                 toggleCompleteTodo,
-                deleteTodov2,
+                deleteTodo,
                 todosFiltered
-
             }}
         >
 

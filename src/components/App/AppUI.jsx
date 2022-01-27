@@ -15,7 +15,7 @@ import { TodoContext } from '../TodoContext/TodoContext.jsx';
 
 function AppUI() {
 
-  const {dataStatus, todosFiltered, toggleCompleteTodo, deleteTodov2} = React.useContext(TodoContext);
+  const {dataStatus, todosFiltered, toggleCompleteTodo, deleteTodo} = React.useContext(TodoContext);
 
 
   return (
@@ -47,7 +47,7 @@ function AppUI() {
                 priority={todo.priority}
                 completed={todo.completed}
                 onComplete={() => toggleCompleteTodo(todo.id)}
-                onDelete={() => deleteTodov2(todo.id)}
+                onDelete={() => deleteTodo(todo.id)}
               />
             ))}
           </TodoList>
