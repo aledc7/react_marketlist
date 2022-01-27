@@ -17,7 +17,7 @@ function App() {
 
 
   return (
-    <>
+    <React.Fragment>
       <TodoProvider>
         <div className='maindiv'>
 
@@ -58,7 +58,7 @@ function App() {
         </div>
 
       </TodoProvider>
-    </>
+    </React.Fragment>
   );
 }
 

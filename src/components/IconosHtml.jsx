@@ -3,7 +3,7 @@ import React from "react";
 
 function IconosHtml() {
     return (
-        <>
+        <React.Fragment>
             {/* 
                     Iconos HTML seleccionados para usar en la APP.   
                     Estos codigos son de HTML5, y se convertiran en iconos sin necesidad de librerias externas 
@@ -58,7 +58,7 @@ function IconosHtml() {
             &#128203;
             &#128210;
             &#128221;
-        </>
+        </React.Fragment>
     );
 }
 
