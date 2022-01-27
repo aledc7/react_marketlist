@@ -6,7 +6,7 @@ function TodoItem(props) {
 
 
     return (
-        <>
+        <React.Fragment>
             <li className="TodoItem">
 
                 {/* en este caso el operador && se usa como si fuese un if.
@@ -36,7 +36,7 @@ function TodoItem(props) {
             </li> */}
 
             <br />
-        </>
+        </React.Fragment>
     );
 }
 
