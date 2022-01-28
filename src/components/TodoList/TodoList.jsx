@@ -1,7 +1,5 @@
 import React from "react";
 import './TodoList.css';
-import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
-
 
 
 function TodoList(props){
@@ -10,7 +8,7 @@ function TodoList(props){
             <section>
                 <ul> {props.children} </ul>
             </section>
-                <CreateTodoButton/>
+
         </div>
     );
 }

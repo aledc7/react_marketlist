@@ -11,25 +11,12 @@ function CreateTodoButton(props) {
 
     const onClickButton = (msg) => {
 
-        MySwal.fire({
-            title: "¿Crear nueva Tarea?",
-            // background: "#000",
-            showCancelButton: true,
-            confirmButtonColor: "#31b904",
-            cancelButtonColor: "#d30404",
-            confirmButtonText: "SÍ",
-            cancelButtonText: "NO",
-            footer: 'DC Software Factory'
-        }).then((result) => {
-            if (!!result.value) {
-                return MySwal.fire(<p>{msg}</p>)
-            }
-        })
+        props.setOpenModal(prevState => !prevState);
 
     }
 
     return (
-        <button className="CreateTodoButton" onClick={() => onClickButton('Tarea Creada !')}>
+        <button className="CreateTodoButton" onClick={onClickButton}>
             &#10133;
         </button>
     );

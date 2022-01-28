@@ -6,6 +6,9 @@ import { TodoList } from '../TodoList/TodoList.jsx';
 import { TodoItem } from '../TodoItem/TodoItem.jsx';
 import './App.css';
 import { TodoContext } from '../TodoContext/TodoContext.jsx';
+import { Modal} from '../Modal/Modal.jsx'
+import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
+import {TodoForm} from '../TodoForm/TodoForm.jsx'
 // import background from "../images/fondo.png";
 // import background from "../images/react-background_xs.jpeg";
 
@@ -15,7 +18,14 @@ import { TodoContext } from '../TodoContext/TodoContext.jsx';
 
 function AppUI() {
 
-  const {dataStatus, todosFiltered, toggleCompleteTodo, deleteTodo} = React.useContext(TodoContext);
+  const {
+    dataStatus, 
+    todosFiltered, 
+    toggleCompleteTodo, 
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  } = React.useContext(TodoContext);
 
 
   return (
@@ -27,9 +37,11 @@ function AppUI() {
           <p className='icon-html'>&#128203; App de Tareas &#9997; </p>
           <p className='text-dc' title="Proximamente..." >DC Software Factory</p>
 
-          <TodoCounter />
+          <TodoCounter/>
 
           <TodoSearch />
+
+          
 
           
           <TodoList>
@@ -50,9 +62,22 @@ function AppUI() {
                 onDelete={() => deleteTodo(todo.id)}
               />
             ))}
+            
           </TodoList>
 
+              {openModal && (
+                <Modal>
+                  <TodoForm/>
+                </Modal>
+              )}
+
+          <CreateTodoButton
+          setOpenModal = { setOpenModal }
+
+          />
         </div>
+
+        
 
     </React.Fragment>
   );

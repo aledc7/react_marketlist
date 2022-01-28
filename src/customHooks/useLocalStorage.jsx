@@ -26,7 +26,7 @@ function useLocalStorage(itemName, initalValue) {
                 setDataStatus({...dataStatus,loading:false})
                 //setLoading(false);
     
-            }, 1000);
+            }, 0);
         } catch (error) {
             //setError(error);
             setDataStatus({...dataStatus,error:error})
