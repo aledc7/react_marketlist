@@ -28,15 +28,15 @@ function TodoProvider(props) {
     };
     
     
-    const toggleCompleteTodo = (id) => {
-        const todoIndex = todos.findIndex(todo => todo.id === id);
+    const toggleCompleteTodo = (text) => {
+        const todoIndex = todos.findIndex(todo => todo.text === text);
         const newTodos = [...todos]
         newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
         saveTodos(newTodos);
     }
 
-    function deleteTodo(id) {
-        const newTodos = todos.filter(todo => todo.id !== id)
+    function deleteTodo(text) {
+        const newTodos = todos.filter(todo => todo.text !== text)
         saveTodos(newTodos)
     }
 

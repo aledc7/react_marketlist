@@ -53,13 +53,13 @@ function AppUI() {
 
             {todosFiltered.map(todo => (
               <TodoItem
-                key={todo.id}
-                id={todo.id}
+                key={todo.text}
+                id={todo.text}
                 text={todo.text}
                 priority={todo.priority}
                 completed={todo.completed}
-                onComplete={() => toggleCompleteTodo(todo.id)}
-                onDelete={() => deleteTodo(todo.id)}
+                onComplete={() => toggleCompleteTodo(todo.text)}
+                onDelete={() => deleteTodo(todo.text)}
               />
             ))}
             
