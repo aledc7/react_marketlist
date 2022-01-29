@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocalStorage } from '../../customHooks/useLocalStorage.jsx';
+import Swal from 'sweetalert2';
 
 const TodoContext = React.createContext();
 
@@ -17,7 +18,20 @@ function TodoProvider(props) {
     const completedTodos = todos.filter(todo => todo.completed).length;
     const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
     
+
+
+    
+
+
+
     const addTodo = (text) => {
+        if (!text.trim()) {
+            Swal.fire(
+                'Campo en blanco?',
+                'al parecer no escribió ningúna Tarea...'
+            );
+            return;
+        }
         const newTodos = [...todos];
         newTodos.push({
         completed: false,
