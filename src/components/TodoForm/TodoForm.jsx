@@ -28,7 +28,8 @@ function TodoForm() {
         <form onSubmit={onSubmit}>
             <label>escriba tarea</label>
 
-            <textarea
+            <textarea 
+                autoFocus
                 value={newTodoValue}
                 onChange={onChange}
 
