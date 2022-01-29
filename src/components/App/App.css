@@ -1,17 +1,7 @@
 .addbutton {
-  text-align: right;
+  text-align: center;
 }
 
-.maindiv {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-  background-image: './images/fondo.png';
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
-}
 
 .App {
   text-align: center;

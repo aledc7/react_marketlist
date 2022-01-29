@@ -26,7 +26,7 @@ function TodoForm() {
 
     return (
         <form onSubmit={onSubmit}>
-            <label>escriba tarea...</label>
+            <label>escriba tarea</label>
 
             <textarea
                 value={newTodoValue}
@@ -36,11 +36,11 @@ function TodoForm() {
 
             <div className='TodoForm-buttonContainer'>
 
-                <Button  onClick={onCancel} type='button' variant="contained" color="error">
+                <Button  onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
                     Cancelar
                 </Button>
 
-                <Button onClick={onSubmit} type='submit' variant="contained" color="success">
+                <Button onClick={onSubmit} type='submit' variant="contained" color="success"  sx={{ m: 0.1 }}>
                     Agregar
                 </Button>
 

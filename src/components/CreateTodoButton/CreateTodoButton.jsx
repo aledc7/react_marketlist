@@ -40,7 +40,7 @@ function CreateTodoButton(props) {
     }
 
     return (
-        <Button onClick={onClickButton} variant="contained" color="info" size="small" align="right">
+        <Button onClick={onClickButton} variant="contained" color="warning" size="small" sx={{  mb: 5 }}>
             Agregar
         </Button>
 
