@@ -3,7 +3,7 @@ import React from "react";
 
 function useLocalStorage(itemName, initalValue) {
 
-    // creo un estado y le
+
     const [dataStatus,setDataStatus] = React.useState({loading:true, error:false});
     // const [error, setError] = React.useState(false);
     // const [loading, setLoading] = React.useState(true);
@@ -11,7 +11,7 @@ function useLocalStorage(itemName, initalValue) {
 
     React.useEffect(()=>{
         try {
-            //throw new Error();
+
             setTimeout(()=>{
                 const localStorageItem = localStorage.getItem(itemName);
                 let parseItem;
@@ -24,11 +24,13 @@ function useLocalStorage(itemName, initalValue) {
     
                 setItem(parseItem);
                 setDataStatus({...dataStatus,loading:false})
-                //setLoading(false);
-    
-            }, 0);
+
+            
+            // si el cliente no paga, aumentar el valor de 0 a 5000 (5 segundos de espera)
+            // cada mez se puede incrementar 5 segundos mas.
+
+            }, 1);
         } catch (error) {
-            //setError(error);
             setDataStatus({...dataStatus,error:error})
         }
     }, []);
@@ -45,7 +47,6 @@ function useLocalStorage(itemName, initalValue) {
             localStorage.setItem(itemName, stringifiedItem);
             setItem(newItem);
         } catch (error) {
-            //setError(error);
             setDataStatus({...dataStatus,error:error})
         }
         
