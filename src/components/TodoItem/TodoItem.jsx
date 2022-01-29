@@ -11,17 +11,19 @@ function TodoItem(props) {
 
                 {/* en este caso el operador && se usa como si fuese un if.
                 si prop.completed tiene datos, entonces dibuja Icon-check--active */}
-                
-                <span className={`Icon Icon-check ${props.completed ? 'Icon-check--active': 'Icon-check--inactive'}`} 
-                
 
-                onClick={props.onComplete}>
+                <span className={`Icon Icon-check ${props.completed ? 'Icon-check--active' : 'Icon-check--inactive'}`}
+
+
+                    onClick={props.onComplete}>
                     {/* ⧅ ❐  √ ⚛︎  ☒  ☑︎  */}
-                    {props.completed ? '☑︎' : '☒' }
+                    {props.completed ? '☑︎' : '☒'}
                 </span>
                 <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
                     {props.text}
                 </p>
+
+
 
 
                 <span className="Icon Icon-delete" onClick={props.onDelete} >

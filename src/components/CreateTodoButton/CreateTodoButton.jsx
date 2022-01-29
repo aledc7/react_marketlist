@@ -2,6 +2,7 @@ import React from "react";
 import './CreateTodoButton.css';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content';
+import Button from '@mui/material/Button';
 
 
 const MySwal = withReactContent(Swal)
@@ -39,9 +40,15 @@ function CreateTodoButton(props) {
     }
 
     return (
-        <button className="CreateTodoButton" onClick={onClickButton}>
-            &#10133;
-        </button>
+        <Button onClick={onClickButton} variant="contained" color="info" size="small" align="right">
+          Agregar
+        </Button>
+
+        
+
+        // <button className="CreateTodoButton" onClick={onClickButton}>
+        //     &#10133;
+        // </button>
     );
 }
 
