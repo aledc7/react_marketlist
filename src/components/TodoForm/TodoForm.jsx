@@ -28,7 +28,21 @@ function TodoForm() {
         <form onSubmit={onSubmit}>
             <label>escriba tarea</label>
 
-            <textarea 
+
+
+
+
+            <textarea
+
+                // si apreta enter graba la tarea
+                onKeyPress={(ev) => {
+                    console.log(`Tecla Apretada:  ${ev.key}`);
+                    if (ev.key === 'Enter') {
+                        {onSubmit(ev)}
+                        ev.preventDefault();
+                    }
+                }}
+
                 autoFocus
                 value={newTodoValue}
                 onChange={onChange}
@@ -37,11 +51,11 @@ function TodoForm() {
 
             <div className='TodoForm-buttonContainer'>
 
-                <Button  onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
+                <Button onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
                     Cancelar
                 </Button>
 
-                <Button onClick={onSubmit} type='submit' variant="contained" color="success"  sx={{ m: 0.1 }}>
+                <Button onClick={onSubmit} type='submit' variant="contained" color="success" sx={{ m: 0.1 }}>
                     Agregar
                 </Button>
 
