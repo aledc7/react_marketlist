@@ -19,7 +19,7 @@ function TodoSearch(){
             <div className="centradodc">
                 <input 
                     className="TodoSearch" 
-                    placeholder='Buscar... 👀 &#128270;' 
+                    placeholder='filtrar... 👀 ' 
                     onChange={onSearchValueChange}
                     value={searchValue}
                 />

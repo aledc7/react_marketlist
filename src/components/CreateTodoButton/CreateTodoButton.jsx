@@ -41,14 +41,10 @@ function CreateTodoButton(props) {
 
     return (
         <Button onClick={onClickButton} variant="contained" color="info" size="small" align="right">
-          Agregar
+            Agregar
         </Button>
 
-        
 
-        // <button className="CreateTodoButton" onClick={onClickButton}>
-        //     &#10133;
-        // </button>
     );
 }
 

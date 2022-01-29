@@ -1,5 +1,9 @@
 import React from "react";
 import './TodoItem.css'
+import Grid from '@mui/material/Grid';
+import DeleteForeverTwoToneIcon from '@mui/icons-material/DeleteForeverTwoTone';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 function TodoItem(props) {
 
@@ -16,8 +20,10 @@ function TodoItem(props) {
 
 
                     onClick={props.onComplete}>
-                    {/* ⧅ ❐  √ ⚛︎  ☒  ☑︎  */}
-                    {props.completed ? '☑︎' : '☒'}
+
+                    {/* {props.completed ? '☑︎' : '☒'} */}
+
+                    {props.completed ? <CheckCircleIcon fontSize="large" /> : <HighlightOffIcon fontSize="large"/>}
                 </span>
                 <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
                     {props.text}
@@ -26,8 +32,11 @@ function TodoItem(props) {
 
 
 
+
                 <span className="Icon Icon-delete" onClick={props.onDelete} >
-                    🚮
+                    <Grid item >
+                        <DeleteForeverTwoToneIcon />
+                    </Grid>
                 </span>
             </li>
             {/* <li>
