@@ -46,7 +46,7 @@ function AppUI() {
 
         <img src={logo} className="App-logo center" alt="logo" />
         <p className='icon-html'>&#128203; Tareas &#9997; </p>
-        <p className='text-dc' title="Proximamente..." >DC Software Factory</p>
+        <p className='text-dc' title="Proximamente..." >Ale DC  - Systems Engineer</p>
 
         <TodoCounter />
 

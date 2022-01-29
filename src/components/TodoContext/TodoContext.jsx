@@ -20,11 +20,10 @@ function TodoProvider(props) {
     
 
 
-    
-
-
 
     const addTodo = (text) => {
+
+        // valido que no venga vacio el input de nueva tarea
         if (!text.trim()) {
             Swal.fire(
                 'Campo en blanco?',
@@ -33,6 +32,17 @@ function TodoProvider(props) {
             return;
         }
         const newTodos = [...todos];
+
+        // valido que la tarea no esté repetida
+        for (let i = 0; i < newTodos.length; i++) {
+            if (newTodos[i].text === text) {
+                Swal.fire(
+                    'Tarea Repetida!',
+                    'al parecer ya existe una Tarea con ese nombre...'
+                );
+                return;
+            }
+        }
         newTodos.push({
         completed: false,
         text,
