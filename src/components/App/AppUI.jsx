@@ -6,15 +6,11 @@ import { TodoList } from '../TodoList/TodoList.jsx';
 import { TodoItem } from '../TodoItem/TodoItem.jsx';
 import './App.css';
 import { TodoContext } from '../TodoContext/TodoContext.jsx';
-import { Modal } from '../Modal/Modal.jsx'
+import { Modal } from '../Modal/Modal.jsx';
 import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
-import { TodoForm } from '../TodoForm/TodoForm.jsx'
+import { TodoForm } from '../TodoForm/TodoForm.jsx';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-// import background from "../images/fondo.png";
-// import background from "../images/react-background_xs.jpeg";
-
-
+import { SiReact } from "react-icons/si";
 
 
 
@@ -32,21 +28,30 @@ function AppUI() {
 
 
 
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+  
+
+
+
   return (
     <React.Fragment>
-      <Box sx={{ 
-            width: '100%', 
-            maxWidth: 500, 
-            margin: 'auto', 
-            borderRadius: 5,
-            backgroundColor: 'primary.light',
-            '&:hover': { backgroundColor: 'primary.light'},
-            boxShadow: 20,
-        }}>
+      <Box sx={{
+        width: '100%',
+        maxWidth: 500,
+        margin: 'auto',
+        borderRadius: 5,
+        backgroundColor: 'primary.light',
+        '&:hover': { backgroundColor: 'primary.light' },
+        boxShadow: 20,
+      }}>
 
         <img src={logo} className="App-logo center" alt="logo" />
-        <p className='icon-html'>&#128203; Tareas &#9997; </p>
-        <p className='text-dc' title="Proximamente..." >Ale DC  - Systems Engineer</p>
+
+        <p className='icon-html'>&#128203; APP DE TAREAS &#9997; </p>
+
 
         <TodoCounter />
 
@@ -93,7 +98,16 @@ function AppUI() {
       </Box>
 
 
+      
 
+      <p className='text-dc' title="Click me..." onClick={() => openInNewTab('https://stackoverflow.com/users/10220740/ale-dc')}>
+
+
+        <SiReact className='logofooter' />
+        Ale DC Profile
+        
+        ➳
+      </p>
 
     </React.Fragment>
   );
