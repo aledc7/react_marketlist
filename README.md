@@ -18,14 +18,14 @@
 ### Features:
 
 - [x] Mobile First
-- [x] Contador dinámico de Tareas
-- [x] data persistence in local storage
+- [x] Dinamic Tasks Counter
+- [x] Data Persistence in LocalStorage
 - [x] MaterialUI Elements
 - [x] React Icons
 - [x] Sweet Alert 2
 - [x] Forms Input Validation
 - [x] Full CRUD
-- [x] Max storage space: 2.500,000  characters or 5 Megabytes.    
+- [x] Max Storage Space: 2.500,000  characters or 5 Megabytes.    
  
 _________________________________________________________________________________
 #### Install:
