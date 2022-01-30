@@ -11,11 +11,11 @@
 [![GitHub release](https://github.com/aledc7/Scrum-Certification/blob/master/recursos/release.svg)](https://aledc.tk)
 [![Dependencies](https://github.com/aledc7/Scrum-Certification/blob/master/recursos/dependencias-none.svg)](https://aledc.tk)
 
-# App de Tareas en ReactJS
+# App Tasks on React JS
 
 [Live Demo](https://aledc7.github.io/react_todo/)
 
-### Caracteristicas:
+### Features:
 
 - [x] Mobile First
 - [x] Contador dinámico de Tareas
