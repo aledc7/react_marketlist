@@ -1,5 +1,5 @@
 
-![](https://github.com/aledc7/reactjs/blob/main/resources/react2.gif)
+![](https://github.com/aledc7/react_todo/blob/master/src/images/react2.gif)
 
 
   
