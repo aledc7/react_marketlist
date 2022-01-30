@@ -15,13 +15,27 @@
 
 ### Caracteristicas:
 
-- [x] Crear Tareas
+- [x] Mobile First
 - [x] Contador dinámico de Tareas
 - [x] Persistencia de Datos en LocalStorage
 - [x] MaterialUI Elementos
 - [x] React Icons
 - [x] Sweet Alert 2
  
+_________________________________________________________________________________
+#### Install:
+1. - Clonarse el repositorio
+```
+git clone https://github.com/aledc7/react_todo/
+```
+2. - Instalar las dependencias
+```
+npm install
+```
+3. - Correr la App
+```
+npm start
+```
 _________________________________________________________________________________
 
 _________________________________________________________________________________
