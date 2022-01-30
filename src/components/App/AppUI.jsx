@@ -94,7 +94,7 @@ function AppUI() {
           </Modal>
         )}
 
-          <p className='version'>Ver 1.2</p>
+          <p className='version'>Ver 1.3</p>
       </Box>
 
 

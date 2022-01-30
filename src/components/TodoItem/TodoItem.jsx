@@ -22,7 +22,7 @@ function TodoItem(props) {
                 </span>
 
                 
-                <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
+                <p onClick={props.onComplete} className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
                     {props.text}
                 </p>
 
