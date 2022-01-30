@@ -2,6 +2,13 @@
   filter: invert(100%);
 } */
 
+
+.version{
+  text-align: center;
+  font-weight:bold;
+  color: white;
+}
+
 .addbutton {
   text-align: center;
 }

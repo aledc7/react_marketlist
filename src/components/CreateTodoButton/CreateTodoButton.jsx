@@ -1,16 +1,11 @@
 import React from "react";
-import './CreateTodoButton.css';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content';
 import Button from '@mui/material/Button';
 
-
-// const MySwal = withReactContent(Swal)
 
 
 function CreateTodoButton(props) {
 
-    const onClickButton = (msg) => {
+    const onClickButton = () => {
         props.setOpenModal(prevState => !prevState);
     }
 
@@ -18,8 +13,6 @@ function CreateTodoButton(props) {
         <Button onClick={onClickButton} variant="contained" color="warning" size="small" sx={{  mb: 5 }}>
             Agregar
         </Button>
-
-
     );
 }
 

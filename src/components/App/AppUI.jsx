@@ -22,6 +22,7 @@ function AppUI() {
     todosFiltered,
     toggleCompleteTodo,
     deleteTodo,
+    editTodo,
     openModal,
     setOpenModal,
   } = React.useContext(TodoContext);
@@ -60,7 +61,6 @@ function AppUI() {
         <div className='addbutton'>
           <CreateTodoButton
             setOpenModal={setOpenModal}
-
           />
         </div>
 
@@ -77,12 +77,12 @@ function AppUI() {
           {todosFiltered.map(todo => (
             <TodoItem
               key={todo.text}
-              id={todo.text}
               text={todo.text}
               priority={todo.priority}
               completed={todo.completed}
               onComplete={() => toggleCompleteTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
+              onEdit={() => editTodo(todo.text, setOpenModal)}
             />
           ))}
 
@@ -94,7 +94,7 @@ function AppUI() {
           </Modal>
         )}
 
-
+          <p className='version'>Ver 1.2</p>
       </Box>
 
 

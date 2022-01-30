@@ -6,8 +6,7 @@ import Button from '@mui/material/Button';
 
 
 function TodoForm() {
-    const [newTodoValue, setNewTodoValue] = React.useState('');
-    const { addTodo, setOpenModal } = React.useContext(TodoContext);
+    const { addTodo, setOpenModal, newTodoValue, setNewTodoValue } = React.useContext(TodoContext);
 
     const onChange = (event) => {
         setNewTodoValue(event.target.value);
@@ -19,7 +18,6 @@ function TodoForm() {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        // if (newTodoValue.length <= 0) return;
         addTodo(newTodoValue);
         setOpenModal(false);
     }
@@ -27,11 +25,6 @@ function TodoForm() {
 
     return (
         <form onSubmit={onSubmit}>
-            <label>escriba tarea</label>
-
-
-
-
 
             <textarea
 
@@ -50,8 +43,8 @@ function TodoForm() {
 
                 placeholder='escriba tarea a crear..' />
 
-            <div className='TodoForm-buttonContainer'>
 
+            <div className='TodoForm-buttonContainer'>
                 <Button onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
                     Cancelar
                 </Button>
@@ -59,12 +52,6 @@ function TodoForm() {
                 <Button onClick={onSubmit} type='submit' variant="contained" color="success" sx={{ m: 0.1 }}>
                     Agregar
                 </Button>
-
-
-
-
-
-
             </div>
 
         </form>

@@ -17,6 +17,8 @@ function TodoProvider(props) {
     const totalTodos = todos.length;
     const completedTodos = todos.filter(todo => todo.completed).length;
     const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
+
+    const [newTodoValue, setNewTodoValue] = React.useState('');
     
 
 
@@ -48,6 +50,11 @@ function TodoProvider(props) {
         text,
         key: text,
         });
+
+        // borro cualquier valor en el input de agregar
+        // asi la proxima aparece en blanco.
+        setNewTodoValue('');
+
         saveTodos(newTodos);
     };
     
@@ -64,6 +71,24 @@ function TodoProvider(props) {
         saveTodos(newTodos)
     }
 
+    
+
+    function editTodo(text, setOpenModal) {
+
+        // primero borro la tarea a editar
+        const newTodos = todos.filter(todo => todo.text !== text)
+        saveTodos(newTodos)
+
+
+        // abro el modal de creacion de tareas
+        setOpenModal(openModal => !openModal);
+        
+        // seteo la tarea clickeada en el nuevo modal
+        setNewTodoValue(text);
+    }
+
+    
+
 
     return (
         // Aca va hacia el componente principal
@@ -77,9 +102,12 @@ function TodoProvider(props) {
                 addTodo,
                 toggleCompleteTodo,
                 deleteTodo,
+                editTodo,
                 todosFiltered,
                 openModal,
                 setOpenModal,
+                newTodoValue,
+                setNewTodoValue,
             }}
         >
 
