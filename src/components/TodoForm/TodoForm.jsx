@@ -41,7 +41,8 @@ function TodoForm() {
                 value={newTodoValue}
                 onChange={onChange}
 
-                placeholder='escriba tarea a crear..' />
+                placeholder='escriba tarea a crear..' 
+                onFocus={e => e.currentTarget.select()} />
 
 
             <div className='TodoForm-buttonContainer'>
