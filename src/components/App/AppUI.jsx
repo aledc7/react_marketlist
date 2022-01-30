@@ -10,7 +10,7 @@ import { Modal } from '../Modal/Modal.jsx';
 import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
 import { TodoForm } from '../TodoForm/TodoForm.jsx';
 import Box from '@mui/material/Box';
-import { SiReact } from "react-icons/si";
+import { SiReact, SiGithub } from "react-icons/si";
 
 
 
@@ -101,12 +101,13 @@ function AppUI() {
       
 
       <p className='text-dc' title="Click me..." onClick={() => openInNewTab('https://stackoverflow.com/users/10220740/ale-dc')}>
-
-
         <SiReact className='logofooter' />
-        Ale DC Profile
-        
-        ➳
+        Ale DC Profile ➳
+      </p>
+
+      <p className='text-dc' title="Click me..." onClick={() => openInNewTab('https://github.com/aledc7/react_todo')}>
+        <SiGithub className='github' />
+        clone on github 
       </p>
 
     </React.Fragment>
