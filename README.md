@@ -15,7 +15,7 @@
 
 ### Caracteristicas:
 
-- [x] Crear Tareas
+- [x] Mobile First
 - [x] Contador dinámico de Tareas
 - [x] Persistencia de Datos en LocalStorage
 - [x] MaterialUI Elementos
