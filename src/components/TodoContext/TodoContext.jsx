@@ -19,7 +19,7 @@ function TodoProvider(props) {
     const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
 
     const [newTodoValue, setNewTodoValue] = React.useState('');
-    
+
 
 
 
@@ -46,9 +46,9 @@ function TodoProvider(props) {
             }
         }
         newTodos.push({
-        completed: false,
-        text,
-        key: text,
+            completed: false,
+            text,
+            key: text,
         });
 
         // borro cualquier valor en el input de agregar
@@ -57,8 +57,8 @@ function TodoProvider(props) {
 
         saveTodos(newTodos);
     };
-    
-    
+
+
     const toggleCompleteTodo = (text) => {
         const todoIndex = todos.findIndex(todo => todo.text === text);
         const newTodos = [...todos]
@@ -67,11 +67,29 @@ function TodoProvider(props) {
     }
 
     function deleteTodo(text) {
-        const newTodos = todos.filter(todo => todo.text !== text)
-        saveTodos(newTodos)
+        Swal.fire({
+            title: 'Borrar Tarea?',
+            text: "No podrás deshacer esta acción",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borrala!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const newTodos = todos.filter(todo => todo.text !== text)
+                saveTodos(newTodos)
+                Swal.fire(
+                    'Listo!',
+                    'Tarea borrada.',
+                    'success'
+                )
+            }
+        })
+
     }
 
-    
+
 
     function editTodo(text, setOpenModal) {
 
@@ -82,12 +100,12 @@ function TodoProvider(props) {
 
         // abro el modal de creacion de tareas
         setOpenModal(openModal => !openModal);
-        
+
         // seteo la tarea clickeada en el nuevo modal
         setNewTodoValue(text);
     }
 
-    
+
 
 
     return (

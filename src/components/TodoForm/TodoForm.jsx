@@ -41,17 +41,29 @@ function TodoForm() {
                 value={newTodoValue}
                 onChange={onChange}
 
-                placeholder='escriba tarea a crear..' 
-                onFocus={e => e.currentTarget.select()} />
+                placeholder='escriba tarea a crear..'
+
+                // este onfocus selecciona el texto del input
+                // onFocus={e => e.currentTarget.select()} 
+
+                // este onfocus pone el cursor al final del input
+                onFocus={function (e) {
+                        var val = e.target.value;
+                        e.target.value = '';
+                        e.target.value = val;
+                    }
+                }
+
+            />
 
 
             <div className='TodoForm-buttonContainer'>
                 <Button onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
-                    Cancelar
+                    Cancel
                 </Button>
 
                 <Button onClick={onSubmit} type='submit' variant="contained" color="success" sx={{ m: 0.1 }}>
-                    Agregar
+                    OK
                 </Button>
             </div>
 
