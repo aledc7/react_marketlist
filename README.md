@@ -19,25 +19,25 @@
 
 - [x] Mobile First
 - [x] Contador dinámico de Tareas
-- [x] Persistencia de Datos en LocalStorage
-- [x] MaterialUI Elementos
+- [x] data persistence in local storage
+- [x] MaterialUI Elements
 - [x] React Icons
 - [x] Sweet Alert 2
-- [x] Validaciones de Formularios y tareas repetidas
+- [x] Forms Input Validation
 - [x] Full CRUD
-- [x] Espacio máximo de almacenado: 2.500,000 (dos millones y medio de caracteres o 5 Megabytes)    
+- [x] Max storage space: 2.500,000  characters or 5 Megabytes.    
  
 _________________________________________________________________________________
 #### Install:
-1. - Clonarse el repositorio
+1. - Clone the repo
 ```
 git clone https://github.com/aledc7/react_todo/
 ```
-2. - Instalar las dependencias
+2. - Install dependences
 ```
 npm install
 ```
-3. - Correr la App
+3. - Run the App
 ```
 npm start
 ```
