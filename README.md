@@ -25,7 +25,7 @@
 - [x] Sweet Alert 2
 - [x] Validaciones de Formularios y tareas repetidas
 - [x] Full CRUD
-- [x] Escacio máximo de almacenado: 2.500,000 (dos millones y medio de caracteres o 5 Megabytes)    
+- [x] Espacio máximo de almacenado: 2.500,000 (dos millones y medio de caracteres o 5 Megabytes)    
  
 _________________________________________________________________________________
 #### Install:
