@@ -21,6 +21,9 @@ function TodoProvider(props) {
     const [newTodoValue, setNewTodoValue] = React.useState('');
 
 
+    const [isUpdate, setIsUpdate] = React.useState(false);
+
+
 
 
     const addTodo = (text) => {
@@ -91,15 +94,15 @@ function TodoProvider(props) {
 
 
 
-    function editTodo(text, setOpenModal) {
-
-        // primero borro la tarea a editar
-        const newTodos = todos.filter(todo => todo.text !== text)
-        saveTodos(newTodos)
-
+    function editTodo(text, setOpenModal, setIsUpdate) {
+        setIsUpdate(true);
 
         // abro el modal de creacion de tareas
         setOpenModal(openModal => !openModal);
+        
+        // primero borro la tarea a editar
+        const newTodos = todos.filter(todo => todo.text !== text)
+        saveTodos(newTodos)
 
         // seteo la tarea clickeada en el nuevo modal
         setNewTodoValue(text);
@@ -126,6 +129,8 @@ function TodoProvider(props) {
                 setOpenModal,
                 newTodoValue,
                 setNewTodoValue,
+                isUpdate,
+                setIsUpdate,
             }}
         >
 

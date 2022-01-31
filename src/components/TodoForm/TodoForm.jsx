@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 
 
 function TodoForm() {
-    const { addTodo, setOpenModal, newTodoValue, setNewTodoValue } = React.useContext(TodoContext);
+    const { addTodo, setOpenModal, newTodoValue, setNewTodoValue, isUpdate } = React.useContext(TodoContext);
 
     const onChange = (event) => {
         setNewTodoValue(event.target.value);
@@ -26,6 +26,9 @@ function TodoForm() {
     return (
         <form onSubmit={onSubmit}>
 
+            {isUpdate ? <p className='titleform'>editar Tarea</p> : <p className='titleform'>nueva Tarea</p>}
+
+
             <textarea
 
                 // si apreta enter graba la tarea
@@ -41,7 +44,7 @@ function TodoForm() {
                 value={newTodoValue}
                 onChange={onChange}
 
-                placeholder='escriba tarea a crear..'
+                placeholder='escriba Tarea..'
 
                 // este onfocus selecciona el texto del input
                 // onFocus={e => e.currentTarget.select()} 
@@ -58,13 +61,18 @@ function TodoForm() {
 
 
             <div className='TodoForm-buttonContainer'>
+
+            {/* si NO es update muestro el boton de cancelar */}
+            {!isUpdate && 
                 <Button onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
                     Cancel
                 </Button>
-
+            }
+                
                 <Button onClick={onSubmit} type='submit' variant="contained" color="success" sx={{ m: 0.1 }}>
                     OK
                 </Button>
+                
             </div>
 
         </form>
