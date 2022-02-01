@@ -25,7 +25,11 @@ function AppUI() {
     editTodo,
     openModal,
     setOpenModal,
-    setIsUpdate
+    setIsUpdate,
+    totalTodos,
+    completedTodos,
+    searchValue, 
+    setSearchValue
   } = React.useContext(TodoContext);
 
 
@@ -55,9 +59,15 @@ function AppUI() {
         <p className='icon-html'>&#128203; APP DE TAREAS &#9997; </p>
 
 
-        <TodoCounter />
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+        />
 
-        <TodoSearch />
+        <TodoSearch 
+          searchValue={searchValue} 
+          setSearchValue={setSearchValue}
+        />
 
         <div className='addbutton'>
           <CreateTodoButton
