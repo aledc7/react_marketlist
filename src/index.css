@@ -3,7 +3,13 @@ body {
     padding: 0;
     background: #F2F4F5;
     color: #1E1E1F;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    /* font-family: 'Montserrat', Arial, Helvetica, sans-serif; */
+    /* font-family: 'Comforter', Arial, Helvetica, sans-serif; */
+    /* font-family: 'Dongle', Arial, Helvetica, sans-serif; */
+    /* font-family: 'Anton', Arial, Helvetica, sans-serif; */
+    /* font-family: 'Comforter', Arial, Helvetica, sans-serif; */
+    /* font-family: 'Lobster', Arial, Helvetica, sans-serif; */
+    font-family: 'Architects Daughter', Arial, Helvetica, sans-serif;
 }
 
 #root {
