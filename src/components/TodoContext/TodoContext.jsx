@@ -32,7 +32,7 @@ function TodoProvider(props) {
         if (!text.trim()) {
             Swal.fire(
                 'Campo en blanco?',
-                'al parecer no escribió ningúna Tarea...'
+                'no escribiste nada...'
             );
             return;
         }

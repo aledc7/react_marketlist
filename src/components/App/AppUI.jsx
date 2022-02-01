@@ -29,7 +29,11 @@ function AppUI() {
     totalTodos,
     completedTodos,
     searchValue, 
-    setSearchValue
+    setSearchValue,
+    addTodo,
+    newTodoValue,
+    setNewTodoValue,
+    isUpdate,
   } = React.useContext(TodoContext);
 
 
@@ -102,11 +106,17 @@ function AppUI() {
 
         {openModal && (
           <Modal>
-            <TodoForm />
+            <TodoForm 
+              addTodo={addTodo}
+              setOpenModal={setOpenModal} 
+              newTodoValue={newTodoValue} 
+              setNewTodoValue={setNewTodoValue} 
+              isUpdate={isUpdate}
+            />
           </Modal>
         )}
 
-          <p className='version'>Ver 1.3</p>
+          <p className='version'>Ver 1.4</p>
       </Box>
 
 
@@ -119,7 +129,7 @@ function AppUI() {
 
       <p className='text-dc' title="Click me..." onClick={() => openInNewTab('https://github.com/aledc7/react_todo')}>
         <SiGithub className='github' />
-        clone on github 
+        Clone on Github 
       </p>
 
     </React.Fragment>
