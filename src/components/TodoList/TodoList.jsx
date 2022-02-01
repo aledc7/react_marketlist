@@ -2,13 +2,11 @@ import React from "react";
 import './TodoList.css';
 
 
-function TodoList(props){
+function TodoList({children}){
     return (
-        <div className="centradodc">
-            <section>
-                <ul> {props.children} </ul>
-            </section>
-        </div>
+        <section className="centradodc">
+            <ul> {children} </ul>
+        </section>
     );
 }
 

@@ -7,7 +7,13 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
 
-function TodoItem(props) {
+function TodoItem({
+    completed,
+    onComplete,
+    text,
+    onDelete,
+    onEdit
+}) {
 
 
 
@@ -16,25 +22,25 @@ function TodoItem(props) {
             <li className="TodoItem">
 
 
-                <span className={`Icon Icon-check ${props.completed ? 'Icon-check--active' : 'Icon-check--inactive'}`}
-                    onClick={props.onComplete}>
-                    {props.completed ? <CheckCircleIcon fontSize="large" /> : <HighlightOffIcon fontSize="large"/>}
+                <span className={`Icon Icon-check ${completed ? 'Icon-check--active' : 'Icon-check--inactive'}`}
+                    onClick={onComplete}>
+                    {completed ? <CheckCircleIcon fontSize="large" /> : <HighlightOffIcon fontSize="large"/>}
                 </span>
 
                 
-                <p onClick={props.onComplete} className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
-                    {props.text}
+                <p onClick={onComplete} className={`TodoItem-p ${completed && 'TodoItem-p--complete'}`}>
+                    {text}
                 </p>
 
                 
-                <span className="Icon Icon-delete" onClick={props.onDelete} >
+                <span className="Icon Icon-delete" onClick={onDelete} >
                     <Grid item >
                         <DeleteForeverTwoToneIcon />
                     </Grid>
                 </span>
 
 
-                <span className="Icon Icon-edit" onClick={props.onEdit} >
+                <span className="Icon Icon-edit" onClick={onEdit} >
                     <Grid>
                         <EditIcon/>
                     </Grid>
