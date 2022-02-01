@@ -1,14 +1,14 @@
 import logo from '../../images/logo.svg';
 import React from 'react';
-import { TodoCounter } from '../TodoCounter/TodoCounter.jsx';
-import { TodoSearch } from '../TodoSearch/TodoSearch.jsx';
-import { TodoList } from '../TodoList/TodoList.jsx';
-import { TodoItem } from '../TodoItem/TodoItem.jsx';
+import { TodoCounter } from '../Counter/TodoCounter.jsx';
+import { TodoSearch } from '../Search/TodoSearch.jsx';
+import { TodoList } from '../List/TodoList.jsx';
+import { TodoItem } from '../Item/TodoItem.jsx';
 import './App.css';
-import { TodoContext } from '../TodoContext/TodoContext.jsx';
+import { TodoContext } from '../Context/TodoContext.jsx';
 import { Modal } from '../Modal/Modal.jsx';
-import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
-import { TodoForm } from '../TodoForm/TodoForm.jsx';
+import { CreateTodoButton } from "../CreateButton/CreateTodoButton";
+import { TodoForm } from '../Form/TodoForm.jsx';
 import Box from '@mui/material/Box';
 import { SiReact, SiGithub } from "react-icons/si";
 
