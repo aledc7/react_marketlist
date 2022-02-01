@@ -1,16 +1,14 @@
 import React from "react";
 import Button from '@mui/material/Button';
-import { TodoContext } from '../TodoContext/TodoContext.jsx';
 
 
 
-function CreateTodoButton(props) {
+function CreateTodoButton({setOpenModal,setIsUpdate}) {
 
-    const { setIsUpdate } = React.useContext(TodoContext);
 
     const onClickButton = () => {
         setIsUpdate(false);
-        props.setOpenModal(prevState => !prevState);
+        setOpenModal(prevState => !prevState);
     }
 
     return (

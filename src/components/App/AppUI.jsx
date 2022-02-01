@@ -72,6 +72,7 @@ function AppUI() {
         <div className='addbutton'>
           <CreateTodoButton
             setOpenModal={setOpenModal}
+            setIsUpdate={setIsUpdate}
           />
         </div>
 
