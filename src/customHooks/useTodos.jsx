@@ -1,10 +1,9 @@
 import React from 'react';
-import { useLocalStorage } from '../../customHooks/useLocalStorage.jsx';
+import { useLocalStorage } from '../customHooks/useLocalStorage.jsx';
 import Swal from 'sweetalert2';
 
-const TodoContext = React.createContext();
 
-function TodoProvider(props) {
+function useTodos() {
     const {
         item: todos,
         saveItem: saveTodos,
@@ -99,7 +98,7 @@ function TodoProvider(props) {
 
         // abro el modal de creacion de tareas
         setOpenModal(openModal => !openModal);
-        
+
         // primero borro la tarea a editar
         const newTodos = todos.filter(todo => todo.text !== text)
         saveTodos(newTodos)
@@ -111,33 +110,25 @@ function TodoProvider(props) {
 
 
 
-    return (
-        // Aca va hacia el componente principal
-        <TodoContext.Provider
-            value={{
-                dataStatus,
-                totalTodos,
-                completedTodos,
-                searchValue,
-                setSearchValue,
-                addTodo,
-                toggleCompleteTodo,
-                deleteTodo,
-                editTodo,
-                todosFiltered,
-                openModal,
-                setOpenModal,
-                newTodoValue,
-                setNewTodoValue,
-                isUpdate,
-                setIsUpdate,
-            }}
-        >
-
-            {props.children}
-        </TodoContext.Provider>
-    );
+    return {
+        dataStatus,
+        totalTodos,
+        completedTodos,
+        searchValue,
+        setSearchValue,
+        addTodo,
+        toggleCompleteTodo,
+        deleteTodo,
+        editTodo,
+        todosFiltered,
+        openModal,
+        setOpenModal,
+        newTodoValue,
+        setNewTodoValue,
+        isUpdate,
+        setIsUpdate,
+    }
 
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };
