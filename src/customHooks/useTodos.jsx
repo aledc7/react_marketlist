@@ -16,12 +16,29 @@ function useTodos() {
     const totalTodos = todos.length;
     const completedTodos = todos.filter(todo => todo.completed).length;
     const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
-
     const [newTodoValue, setNewTodoValue] = React.useState('');
-
-
     const [isUpdate, setIsUpdate] = React.useState(false);
 
+    // nuevo para editar
+    const [dataEdit, setDataEdit] = React.useState("");
+
+    // genera id numerico autoincremental desde el 1
+    const generateId = () => {
+        let id;
+        if (todos.length > 0) {
+            id = todos[todos.length - 1].id + 1;
+        } else {
+            id = 1
+        }
+        return id
+    }
+
+
+    // genera id Alfanumerico   kjncoiybweriuv
+    const generateId_ = () => {
+        let id = Math.random().toString(36).slice(2)
+        return id
+    }
 
 
 
@@ -36,6 +53,7 @@ function useTodos() {
             return;
         }
         const newTodos = [...todos];
+        const id = generateId();
 
         // valido que la tarea no esté repetida
         for (let i = 0; i < newTodos.length; i++) {
@@ -48,9 +66,9 @@ function useTodos() {
             }
         }
         newTodos.push({
-            completed: false,
+            id: id,
             text,
-            key: text,
+            completed: false,
         });
 
         // borro cualquier valor en el input de agregar
@@ -61,14 +79,14 @@ function useTodos() {
     };
 
 
-    const toggleCompleteTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
+    const toggleCompleteTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos]
         newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
         saveTodos(newTodos);
     }
 
-    function deleteTodo(text) {
+    function deleteTodo(id) {
         Swal.fire({
             title: 'Borrar Tarea?',
             text: "No podrás deshacer esta acción",
@@ -79,7 +97,7 @@ function useTodos() {
             confirmButtonText: 'Si, borrala!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const newTodos = todos.filter(todo => todo.text !== text)
+                const newTodos = todos.filter(todo => todo.id !== id)
                 saveTodos(newTodos)
                 Swal.fire(
                     'Listo!',
@@ -91,16 +109,31 @@ function useTodos() {
 
     }
 
+    const orderTodo = (num) => {
+        const newTodos = [...todos]
+        if (num === 1) {
+            newTodos.sort((td1, td2) => {
+                return (td1.priority < td2.priority) ? -1 : 1
+            })
+            saveTodos(newTodos)
+        } else {
+            newTodos.sort((td1, td2) => {
+                return (td1.complete > td2.complete) ? -1 : 1
+            })
+            saveTodos(newTodos)
+        }
+    }
 
 
-    function editTodo(text, setOpenModal, setIsUpdate) {
+
+    function editTodo(id, text, setOpenModal, setIsUpdate) {
         setIsUpdate(true);
 
         // abro el modal de creacion de tareas
         setOpenModal(openModal => !openModal);
 
         // primero borro la tarea a editar
-        const newTodos = todos.filter(todo => todo.text !== text)
+        const newTodos = todos.filter(todo => todo.id !== id)
         saveTodos(newTodos)
 
         // seteo la tarea clickeada en el nuevo modal

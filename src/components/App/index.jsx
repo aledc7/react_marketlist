@@ -72,6 +72,8 @@ function App() {
                     <CreateTodoButton
                         setOpenModal={setOpenModal}
                         setIsUpdate={setIsUpdate}
+                        setNewTodoValue={setNewTodoValue}
+                        
                     />
                 </div>
 
@@ -87,13 +89,13 @@ function App() {
 
                     {todosFiltered.map(todo => (
                         <TodoItem
-                            key={todo.text}
+                            key={todo.id}
                             text={todo.text}
                             priority={todo.priority}
                             completed={todo.completed}
-                            onComplete={() => toggleCompleteTodo(todo.text)}
-                            onDelete={() => deleteTodo(todo.text)}
-                            onEdit={() => editTodo(todo.text, setOpenModal, setIsUpdate)}
+                            onComplete={() => toggleCompleteTodo(todo.id)}
+                            onDelete={() => deleteTodo(todo.id)}
+                            onEdit={() => editTodo(todo.id, todo.text,  setOpenModal, setIsUpdate)}
                         />
                     ))}
 
@@ -111,7 +113,7 @@ function App() {
                     </Modal>
                 )}
 
-                <p className='version'>Ver 1.5</p>
+                <p className='version'>Ver 1.6</p>
             </Box>
 
 

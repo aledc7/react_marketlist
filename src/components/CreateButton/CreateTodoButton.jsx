@@ -3,12 +3,13 @@ import Button from '@mui/material/Button';
 
 
 
-function CreateTodoButton({setOpenModal,setIsUpdate}) {
+function CreateTodoButton({setOpenModal ,setIsUpdate, setNewTodoValue}) {
 
 
     const onClickButton = () => {
         setIsUpdate(false);
         setOpenModal(prevState => !prevState);
+        setNewTodoValue('');
     }
 
     return (
