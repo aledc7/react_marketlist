@@ -42,8 +42,10 @@ function useTodos() {
 
 
 
-    const addTodo = (text) => {
+    // le paso isUpdate para ver si viene por edicion
+    const addTodo = (text, isUpdate) => {
 
+        alert('is update? ' + isUpdate );
         // valido que no venga vacio el input de nueva tarea
         if (!text.trim()) {
             Swal.fire(

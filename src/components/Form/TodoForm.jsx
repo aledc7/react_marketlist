@@ -21,9 +21,15 @@ function TodoForm({
         setOpenModal(false);
     }
 
+    // constante que llamo al dar click al botonn del modal para agregar o editar
     const onSubmit = (event) => {
         event.preventDefault();
-        addTodo(newTodoValue);
+
+        // funcion declarada en useTodos 
+        addTodo(newTodoValue, isUpdate);
+        
+        
+        // cierro el modal
         setOpenModal(false);
     }
 
@@ -78,6 +84,7 @@ function TodoForm({
                 </Button>
             }
                 
+                {/* Boton de adentro del modal para agregar editar */}
             <Button onClick={onSubmit} type='submit' variant="contained" color="success" sx={{ m: 0.1 }}>
                 OK
             </Button>
