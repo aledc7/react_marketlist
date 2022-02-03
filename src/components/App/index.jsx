@@ -33,6 +33,8 @@ function App() {
         newTodoValue,
         setNewTodoValue,
         isUpdate,
+        idEditado, 
+        setIdEditado,
     } = useTodos();
 
 
@@ -96,7 +98,7 @@ function App() {
                             onComplete={() => toggleCompleteTodo(todo.id)}
                             onDelete={() => deleteTodo(todo.id)}
                             
-                            onEdit={() => editTodo(todo.id, todo.text,  setOpenModal, setIsUpdate)}
+                            onEdit={() => editTodo(todo.id, todo.text,  setOpenModal, setIsUpdate, setIdEditado)}
                         />
                     ))}
 
@@ -110,6 +112,7 @@ function App() {
                             newTodoValue={newTodoValue}
                             setNewTodoValue={setNewTodoValue}
                             isUpdate={isUpdate}
+                            idEditado={idEditado}
                         />
                     </Modal>
                 )}

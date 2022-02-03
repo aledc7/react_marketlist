@@ -9,7 +9,8 @@ function TodoForm({
     setOpenModal, 
     newTodoValue, 
     setNewTodoValue, 
-    isUpdate
+    isUpdate,
+    idEditado
 }) {
 
 
@@ -26,7 +27,7 @@ function TodoForm({
         event.preventDefault();
 
         // funcion declarada en useTodos 
-        addTodo(newTodoValue, isUpdate);
+        addTodo(newTodoValue, isUpdate, idEditado);
         
         
         // cierro el modal
@@ -60,29 +61,28 @@ function TodoForm({
 
                 placeholder='escriba Tarea..'
 
-                // este onfocus selecciona el texto del input
-                // onFocus={e => e.currentTarget.select()} 
+                // este onFocus selecciona el texto del input.
+                onFocus={e => e.currentTarget.select()} 
 
-                // este onfocus pone el cursor al final del input
-                onFocus={
-                    function (e) {
-                        var val = e.target.value;
-                        e.target.value = '';
-                        e.target.value = val;
-                    }
-                }
+                // este onFocus pone el cursor al final del input.
+                // onFocus={
+                //     function (e) {
+                //         var val = e.target.value;
+                //         e.target.value = '';
+                //         e.target.value = val;
+                //     }
+                // }
 
             />
 
 
             <div className='TodoForm-buttonContainer'>
 
-            {/* si NO es update muestro el boton de Cancelar */}
-            {!isUpdate && 
-                <Button onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
-                    Cancel
-                </Button>
-            }
+
+            <Button onClick={onCancel} type='button' variant="contained" color="error" sx={{ m: 0.1 }}>
+                Cancel
+            </Button>
+
                 
                 {/* Boton de adentro del modal para agregar editar */}
             <Button onClick={onSubmit} type='submit' variant="contained" color="success" sx={{ m: 0.1 }}>

@@ -18,9 +18,8 @@ function useTodos() {
     const todosFiltered = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()));
     const [newTodoValue, setNewTodoValue] = React.useState('');
     const [isUpdate, setIsUpdate] = React.useState(false);
+    const [idEditado, setIdEditado] = React.useState(false);
 
-    // nuevo para editar
-    const [dataEdit, setDataEdit] = React.useState("");
 
     // genera id numerico autoincremental desde el 1
     const generateId = () => {
@@ -34,50 +33,76 @@ function useTodos() {
     }
 
 
-    // genera id Alfanumerico   kjncoiybweriuv
-    const generateId_ = () => {
-        let id = Math.random().toString(36).slice(2)
-        return id
-    }
-
 
 
     // le paso isUpdate para ver si viene por edicion
-    const addTodo = (text, isUpdate) => {
+    const addTodo = (text, isUpdate, idEditado) => {
 
-        alert('is update? ' + isUpdate );
-        // valido que no venga vacio el input de nueva tarea
-        if (!text.trim()) {
-            Swal.fire(
-                'Campo en blanco?',
-                'no escribiste nada...'
-            );
-            return;
-        }
-        const newTodos = [...todos];
-        const id = generateId();
+        // si viene por update, actualizo el texto de ese registro
+        if (isUpdate) {
 
-        // valido que la tarea no esté repetida
-        for (let i = 0; i < newTodos.length; i++) {
-            if (newTodos[i].text === text) {
+            // clono el array de todos
+            const newTodos = [...todos];
+
+            // busco el indice que recibo en esta funcion para saber cual tengo que editar
+            const todoIndex = todos.findIndex(todo => todo.id === idEditado);
+            
+            // reeplazo el texto por el nuevo que el usuario modifico
+            newTodos[todoIndex].text = text;
+        
+            // pongo el mismo id que el usuario edito
+            newTodos[todoIndex].id = idEditado;
+        
+            // guardo el array de todos
+            saveTodos(newTodos)
+
+        } 
+        
+        // Si no es UPDATE, entonces es INSERT,
+        else {
+            // valido que no venga vacio el input de nueva tarea
+            if (!text.trim()) {
                 Swal.fire(
-                    'Tarea Repetida!',
-                    'al parecer ya existe una Tarea con ese nombre...'
+                    'Campo en blanco?',
+                    'no escribiste nada...'
                 );
                 return;
             }
+
+            // clono el array de todos
+            const newTodos = [...todos];
+            
+            // genero el id incremental
+            const id = generateId();
+
+            // valido que la tarea no esté repetida
+            for (let i = 0; i < newTodos.length; i++) {
+                if (newTodos[i].text === text) {
+                    Swal.fire(
+                        'Tarea Repetida!',
+                        'al parecer ya existe una Tarea con ese nombre...'
+                    );
+                    return;
+                }
+            }
+
+            // creo el array de todos con el id nuevo y el texto que escribió el usuario.
+            // la propiedad complete se la pongo en false, ya que recien crea la tarea.
+            newTodos.push({
+                id: id,
+                text,
+                completed: false,
+            });
+
+            // borro cualquier valor en el input de agregar
+            // asi la proxima aparece en blanco.
+            setNewTodoValue('');
+
+            saveTodos(newTodos);
+
+
         }
-        newTodos.push({
-            id: id,
-            text,
-            completed: false,
-        });
 
-        // borro cualquier valor en el input de agregar
-        // asi la proxima aparece en blanco.
-        setNewTodoValue('');
-
-        saveTodos(newTodos);
     };
 
 
@@ -111,59 +136,20 @@ function useTodos() {
 
     }
 
-    const orderTodo = (num) => {
-        const newTodos = [...todos]
-        if (num === 1) {
-            newTodos.sort((td1, td2) => {
-                return (td1.priority < td2.priority) ? -1 : 1
-            })
-            saveTodos(newTodos)
-        } else {
-            newTodos.sort((td1, td2) => {
-                return (td1.complete > td2.complete) ? -1 : 1
-            })
-            saveTodos(newTodos)
-        }
-    }
 
+    function editTodo(id, text, setOpenModal, setIsUpdate, setIdEditado) {
 
-
-    function editTodo(id, text, setOpenModal, setIsUpdate) {
-        alert('el id es:' + id + ' el texto es: ' + text);
+        // seteo el estado de que es un EDIT, para que lo reciba  'addTodo' y sepa que NO es un insert.
         setIsUpdate(true);
+        
+        // seteo el estado del Id que el usuario quiere editar para que lo use 'addTodo'.
+        setIdEditado(id);
 
         // abro el modal de creacion de tareas
         setOpenModal(openModal => !openModal);
 
-        // primero borro la tarea a editar
-        // const newTodos = todos.filter(todo => todo.id !== id)
-        // saveTodos(newTodos)
-
-
-        // ACA ACTUALIZAR  EL ID
-
-
-     
-            const newTodos = [...todos];
-            const todoIndex = todos.findIndex(todo => todo.id === id );
-            alert('el indice a editar es es:' + todoIndex ); 
-            newTodos[todoIndex].text = text;
-            newTodos[todoIndex].id = id;
-
-            alert('el todo modificado tiene: ' +JSON.stringify(newTodos));
-            // newTodos[todoIndex].complete = task.complete;
-            saveTodos(newTodos)
-
-      
-          const editTodo = (id)=>{
-            const todoIndex = todos.findIndex(todo => todo.id === id);
-            setDataEdit(todos[todoIndex])
-          }
-
-
-
-
-        // seteo la tarea clickeada en el nuevo modal
+        
+        // seteo la tarea clickeada en el modal para que el usuario la edite.  
         setNewTodoValue(text);
     }
 
@@ -187,6 +173,8 @@ function useTodos() {
         setNewTodoValue,
         isUpdate,
         setIsUpdate,
+        idEditado,
+        setIdEditado,
     }
 
 }
