@@ -129,14 +129,39 @@ function useTodos() {
 
 
     function editTodo(id, text, setOpenModal, setIsUpdate) {
+        alert('el id es:' + id + ' el texto es: ' + text);
         setIsUpdate(true);
 
         // abro el modal de creacion de tareas
         setOpenModal(openModal => !openModal);
 
         // primero borro la tarea a editar
-        const newTodos = todos.filter(todo => todo.id !== id)
-        saveTodos(newTodos)
+        // const newTodos = todos.filter(todo => todo.id !== id)
+        // saveTodos(newTodos)
+
+
+        // ACA ACTUALIZAR  EL ID
+
+
+     
+            const newTodos = [...todos];
+            const todoIndex = todos.findIndex(todo => todo.id === id );
+            alert('el indice a editar es es:' + todoIndex ); 
+            newTodos[todoIndex].text = text;
+            newTodos[todoIndex].id = id;
+
+            alert('el todo modificado tiene: ' +JSON.stringify(newTodos));
+            // newTodos[todoIndex].complete = task.complete;
+            saveTodos(newTodos)
+
+      
+          const editTodo = (id)=>{
+            const todoIndex = todos.findIndex(todo => todo.id === id);
+            setDataEdit(todos[todoIndex])
+          }
+
+
+
 
         // seteo la tarea clickeada en el nuevo modal
         setNewTodoValue(text);

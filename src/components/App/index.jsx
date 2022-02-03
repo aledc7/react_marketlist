@@ -95,6 +95,7 @@ function App() {
                             completed={todo.completed}
                             onComplete={() => toggleCompleteTodo(todo.id)}
                             onDelete={() => deleteTodo(todo.id)}
+                            
                             onEdit={() => editTodo(todo.id, todo.text,  setOpenModal, setIsUpdate)}
                         />
                     ))}
