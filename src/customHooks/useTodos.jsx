@@ -37,6 +37,16 @@ function useTodos() {
 
     // le paso isUpdate para ver si viene por edicion
     const addTodo = (text, isUpdate, idEditado) => {
+        
+        // valido que no venga vacio el input de nueva tarea
+        if (!text.trim()) {
+            Swal.fire({
+                title: 'Campo en blanco?',
+                text: 'no escribiste nada...',
+                width: '370',
+            });
+            return;
+        }
 
         // si viene por update, actualizo el texto de ese registro
         if (isUpdate) {
@@ -60,15 +70,6 @@ function useTodos() {
         
         // Si no es UPDATE, entonces es INSERT,
         else {
-            // valido que no venga vacio el input de nueva tarea
-            if (!text.trim()) {
-                Swal.fire(
-                    'Campo en blanco?',
-                    'no escribiste nada...'
-                );
-                return;
-            }
-
             // clono el array de todos
             const newTodos = [...todos];
             
@@ -78,10 +79,11 @@ function useTodos() {
             // valido que la tarea no esté repetida
             for (let i = 0; i < newTodos.length; i++) {
                 if (newTodos[i].text === text) {
-                    Swal.fire(
-                        'Tarea Repetida!',
-                        'al parecer ya existe una Tarea con ese nombre...'
-                    );
+                    Swal.fire({
+                        title: 'Tarea Repetida!',
+                        text: 'al parecer ya existe una Tarea con ese nombre...',
+                        width: '370',
+                    });
                     return;
                 }
             }
