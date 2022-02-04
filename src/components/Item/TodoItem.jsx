@@ -18,7 +18,7 @@ function TodoItem({
 
 
     return (
-        <React.Fragment>
+        <>
             <li className="TodoItem">
 
 
@@ -49,7 +49,7 @@ function TodoItem({
 
 
             <br />
-        </React.Fragment>
+        </>
     );
 }
 

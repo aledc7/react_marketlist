@@ -44,7 +44,7 @@ function App() {
     }
 
     return (
-        <React.Fragment>
+        <>
             <Box sx={{
                 width: '100%',
                 maxWidth: 500,
@@ -70,14 +70,14 @@ function App() {
                     setSearchValue={setSearchValue}
                 />
 
-                <div className='addbutton'>
-                    <CreateTodoButton
-                        setOpenModal={setOpenModal}
-                        setIsUpdate={setIsUpdate}
-                        setNewTodoValue={setNewTodoValue}
-                        
-                    />
-                </div>
+
+                <CreateTodoButton
+                    setOpenModal={setOpenModal}
+                    setIsUpdate={setIsUpdate}
+                    setNewTodoValue={setNewTodoValue}
+                    
+                />
+
 
 
 
@@ -133,7 +133,7 @@ function App() {
                 Clone on Github
             </p>
 
-        </React.Fragment>
+        </>
     );
 }
 

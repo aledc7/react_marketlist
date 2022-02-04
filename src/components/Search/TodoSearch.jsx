@@ -13,7 +13,7 @@ function TodoSearch({searchValue,setSearchValue}){
     
 
     return (
-        <React.Fragment >
+        <>
             <div className="centradodc">
                 <input 
                     className="TodoSearch" 
@@ -22,7 +22,7 @@ function TodoSearch({searchValue,setSearchValue}){
                     value={searchValue}
                 />
             </div>
-        </React.Fragment>
+        </>
     );
 }
 
