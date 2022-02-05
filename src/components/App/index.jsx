@@ -117,7 +117,7 @@ function App() {
                     </Modal>
                 )}
 
-                <p className='version'>Ver 1.6</p>
+                <p className='version'>Ver 1.7</p>
             </Box>
 
 
