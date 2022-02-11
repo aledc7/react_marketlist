@@ -1,5 +1,5 @@
 {
-  "name": "react_todo",
+  "name": "react_marketlist",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -47,5 +47,5 @@
   "devDependencies": {
     "gh-pages": "^3.2.3"
   },
-  "homepage": "https://aledc7.github.io/react_todo"
+  "homepage": "https://aledc7.github.io/react_marketlist"
 }

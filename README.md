@@ -1,5 +1,5 @@
 
-![](https://github.com/aledc7/react_todo/blob/master/src/images/react2.gif)
+![](https://github.com/aledc7/react_marketlist/blob/master/src/images/react2.gif)
 
 
   
@@ -13,7 +13,7 @@
 
 # Market List on React JS
 
-[Live Demo](https://aledc7.github.io/react_todo/)
+[Live Demo](https://aledc7.github.io/react_marketlist/)
 
 ### Features:
 
