@@ -11,7 +11,7 @@
 [![GitHub release](https://github.com/aledc7/Scrum-Certification/blob/master/recursos/release.svg)](https://aledc.tk)
 [![Dependencies](https://github.com/aledc7/Scrum-Certification/blob/master/recursos/dependencias-none.svg)](https://aledc.tk)
 
-# App Tasks on React JS
+# Market List on React JS
 
 [Live Demo](https://aledc7.github.io/react_todo/)
 
@@ -30,9 +30,8 @@
 _________________________________________________________________________________
 #### Install:
 1. - Clone the repo
-```
-git clone https://github.com/aledc7/react_todo/
-```
+
+
 2. - Install dependences
 ```
 npm install
