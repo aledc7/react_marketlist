@@ -129,7 +129,7 @@ function App() {
                 Ale DC Profile ➳
             </p>
 
-            <p className='text-dc' title="Click me..." onClick={() => openInNewTab('https://github.com/aledc7/react_todo')}>
+            <p className='text-dc' title="Click me..." onClick={() => openInNewTab('https://github.com/aledc7/react_marketlist')}>
                 <SiGithub className='github' />
                 Clone on Github
             </p>
