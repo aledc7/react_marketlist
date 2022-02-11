@@ -11,6 +11,7 @@ import { TodoForm } from '../Form/TodoForm.jsx';
 import { SiReact, SiGithub } from "react-icons/si";
 import { CreateTodoButton } from "../CreateButton/CreateTodoButton";
 import { Modal } from '../Modal/Modal.jsx';
+import { TiShoppingCart } from "react-icons/ti";
 
 
 
@@ -57,7 +58,7 @@ function App() {
 
                 <img src={logo} className="App-logo center" alt="logo" />
 
-                <p className='icon-html'>&#128203; APP DE TAREAS &#9997; </p>
+                <h1 className='icon-html'> Lista del Super  <TiShoppingCart/> </h1>
 
 
                 <TodoCounter
@@ -86,7 +87,7 @@ function App() {
 
                     {dataStatus.error && <p>hubo un error.</p>}
                     {(dataStatus.loading && !dataStatus.error) && <p>cargando...</p>}
-                    {/* {(!dataStatus.loading) && <p>crear tarea...</p>} */}
+                    {/* {(!dataStatus.loading) && <p>crear item...</p>} */}
 
 
                     {todosFiltered.map(todo => (
@@ -117,7 +118,7 @@ function App() {
                     </Modal>
                 )}
 
-                <p className='version'>Ver 1.7</p>
+                <p className='version'>Ver 1.8</p>
             </Box>
 
 

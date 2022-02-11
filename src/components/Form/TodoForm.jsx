@@ -38,12 +38,12 @@ function TodoForm({
     return (
         <form onSubmit={onSubmit}>
 
-            {isUpdate ? <p className='titleform'>Editar Tarea</p> : <p className='titleform'>Nueva Tarea</p>}
+            {isUpdate ? <p className='titleform'>Editar Item</p> : <p className='titleform'>Nuevo Item</p>}
 
 
             <textarea
 
-                // si apreta enter graba la tarea
+                // si apreta enter graba el item
                 onKeyPress={(ev) => {
                     console.log(`Tecla Apretada:  ${ev.key}`);
                     if (ev.key === 'Enter') {
@@ -59,7 +59,7 @@ function TodoForm({
                 value={newTodoValue}
                 onChange={onChange}
 
-                placeholder='escriba Tarea..'
+                placeholder='escriba Item..'
 
                 // este onFocus selecciona el texto del input.
                 onFocus={e => e.currentTarget.select()} 

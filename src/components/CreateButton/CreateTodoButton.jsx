@@ -26,6 +26,12 @@ function CreateTodoButton({ setOpenModal, setIsUpdate, setNewTodoValue }) {
             }}
         >
             <Button
+            style={{
+                //borderRadius: 35,
+                backgroundColor: "#D4483D",
+                //padding: "18px 36px",
+                //fontSize: "18px"
+            }}
                 onClick={onClickButton}
                 variant="contained"
                 color="warning"

@@ -58,6 +58,7 @@
 
 .Icon-check--inactive {
     color: #ff6600;
+    color:#D4483D;
     font-size: 50px;
 }
 
@@ -70,6 +71,7 @@
 
 .Icon-delete:hover {
     color: #ff6600;
+    color:#D4483D;
     transform: scale(1.3);
 }
 

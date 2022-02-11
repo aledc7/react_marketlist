@@ -38,7 +38,7 @@ function useTodos() {
     // le paso isUpdate para ver si viene por edicion
     const addTodo = (text, isUpdate, idEditado) => {
         
-        // valido que no venga vacio el input de nueva tarea
+        // valido que no venga vacio el input del nuevo item
         if (!text.trim()) {
             Swal.fire({
                 title: 'Campo en blanco?',
@@ -76,12 +76,12 @@ function useTodos() {
             // genero el id incremental
             const id = generateId();
 
-            // valido que la tarea no esté repetida
+            // valido que el Item no esté repetido
             for (let i = 0; i < newTodos.length; i++) {
                 if (newTodos[i].text === text) {
                     Swal.fire({
-                        title: 'Tarea Repetida!',
-                        text: 'al parecer ya existe una Tarea con ese nombre...',
+                        title: 'Item Repetido!',
+                        text: 'al parecer ya existe un Item con ese nombre...',
                         width: '370',
                     });
                     return;
@@ -89,7 +89,7 @@ function useTodos() {
             }
 
             // creo el array de todos con el id nuevo y el texto que escribió el usuario.
-            // la propiedad complete se la pongo en false, ya que recien crea la tarea.
+            // la propiedad complete se la pongo en false, ya que recien crea el Item.
             newTodos.push({
                 id: id,
                 text,
@@ -117,10 +117,11 @@ function useTodos() {
 
     function deleteTodo(id) {
         Swal.fire({
-            title: 'Borrar Tarea?',
+            title: 'Borrar Item?',
             text: "No podrás deshacer esta acción",
             icon: 'warning',
             showCancelButton: true,
+            reverseButtons: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, borrala!'
@@ -128,11 +129,13 @@ function useTodos() {
             if (result.isConfirmed) {
                 const newTodos = todos.filter(todo => todo.id !== id)
                 saveTodos(newTodos)
-                Swal.fire(
-                    'Listo!',
-                    'Tarea borrada.',
-                    'success'
-                )
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Item eliminado',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             }
         })
 
@@ -151,7 +154,7 @@ function useTodos() {
         setOpenModal(openModal => !openModal);
 
         
-        // seteo la tarea clickeada en el modal para que el usuario la edite.  
+        // seteo el Item clickeada en el modal para que el usuario la edite.  
         setNewTodoValue(text);
     }
 

@@ -7,7 +7,7 @@ function TodoCounter({totalTodos, completedTodos}) {
     return (
         <>
             <Typography variant="h5" gutterBottom color="white" textAlign='center'>
-            Completaste {completedTodos} de {totalTodos} Tareas
+            tienes {completedTodos} de {totalTodos} productos...
             </Typography>
         </> 
         
